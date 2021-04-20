@@ -8,17 +8,22 @@ $(document).ready(function(){
     function switchRight(){
         // creo una var per individuare l'immagine che ha la classe active
         var img_active = $('.wrapper .images img.active');
-
+        var circle_active = $('.wrapper nav a i.active');
         // rimuovo la classe active dall'immagine
         img_active.removeClass('active');
+        circle_active.removeClass('active');
         
-        console.log(img_active);
+        var next_image = img_active.next('img');
+        var next_circle = circle_active.next(' i');
+        
 
-        if(img_active.length === 0){
-            img_active.first().addClass('active');
+        if(next_image.length === 0){
+            $('.wrapper .images img').first().addClass('active');
+            $('.wrapper nav a i').first().addClass('active');
         }else{
             // do la classe active all'elemento (img) successivo
-            img_active.next('img').addClass('active'); 
+            next_image.addClass('active'); 
+            next_circle.addClass('active');
         }
         
     }
@@ -28,8 +33,16 @@ $(document).ready(function(){
         var img_active = $('.wrapper .images img.active');
         // rimuovo la classe active dall'immagine
         img_active.removeClass('active');
-        // do la classe active all'elemento (img) precedente
-        img_active.prev('img').addClass('active');
+
+        var prev_image = img_active.prev('img');
+
+        if(prev_image.length === 0){
+            $('.wrapper .images img').last().addClass('active');
+        }else{
+            // do la classe active all'elemento (img) precedente
+            prev_image.addClass('active');
+        }
+        
     }
 
 
