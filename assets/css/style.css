@@ -59,10 +59,11 @@
 }
 .wrapper nav a i {
     font-size: 150%;
-    padding: 20px 20px;
+    margin: 20px 20px;
+    color: blue;
 }
 .wrapper nav a i.active {
-    color: blue;
+   font-weight: 900;
 }
 
 
